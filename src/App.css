@@ -1,0 +1,22 @@
+:root {
+  --blue: #0094b0;
+  --pink: #db75c9;
+  --pink-dark: #e1a3d6;
+  --yellow: #f3a801;
+  --green: #01c086;
+  --black: #000;
+}
+
+.container {
+  min-height: 60vh;
+  margin-bottom: 5em;
+  font-family: 'The Nautigal', cursive;
+  font-weight: 700;
+}
+
+.active {
+  background-color: var(--blue);  
+  font-family: 'The Nautigal', cursive;
+  color: antiquewhite;
+  font-weight: 700;
+}
