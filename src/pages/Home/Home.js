@@ -1,20 +1,20 @@
 import React from "react";
 //CSS
 import styles from "./Home.module.css";
-//Images
-import coffe from "../../images/cofeebreak.png";
-import pockets from "../../images/marmita.png"
-import desserts from "../../images/sobremesas.png";
-import broths from "../../images/caldos-e-sopas.png";
-import Services from "../../components/Services/Services";
+import Pocket from "../../components/Services/Service/Pocket";
+import Coffee from "../../components/Services/Service/Coffee";
+import Broths from "../../components/Services/Service/Broths";
+import Desserts from "../../components/Services/Service/Desserts";
+
+
 
 const Home = () => {
   return (
     <div className={styles.home}>
-      <Services Title="M" word="armitas" bg={pockets} />
-      <Services Title="C" word="offe-Break" bg={coffe} />
-      <Services Title="C" word="aldos e Sopas" bg={broths} />
-      <Services Title="S" word="obremesas" bg={desserts} />
+      <Pocket />
+      <Coffee />
+      <Broths />
+      <Desserts />
     </div>
   );
 };
