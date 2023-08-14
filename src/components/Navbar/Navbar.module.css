@@ -50,7 +50,7 @@
   .brand {
     width: auto;
     height: 5em;
-    margin-left: -1.5em;
+    margin-left: -1.3em;
   }
 
   .mobile svg {
@@ -63,6 +63,7 @@
     justify-content: stretch;
     align-items: center;
     list-style: none;
+    margin-left: 3em;
   }
 
   .links {

@@ -1,11 +1,12 @@
 .home {
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 2.2em;
 }
+
+
 
 @media (max-width: 965px) {
     .home { 
