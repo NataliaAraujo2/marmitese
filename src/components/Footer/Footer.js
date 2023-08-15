@@ -2,11 +2,23 @@ import React from "react";
 //CSS
 import styles from "./Footer.module.css";
 //Icons
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
+      <div className={styles.contact}>
+        <ul>
+          <li>
+          <FaWhatsapp />
+          </li>
+          <li>
+          <MdOutlineEmail />
+          </li>
+        </ul>
+       
+      </div>
       <div className={styles.links}>
         <ul>
           <li>
@@ -30,11 +42,12 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <p className={styles.copyright}>
-          <span>Kay &copy; 2023</span>
+      <div className={styles.copyright}>
+      <p >
+         &copy;2023 Kay
         </p>
       </div>
+     
     </footer>
   );
 };
