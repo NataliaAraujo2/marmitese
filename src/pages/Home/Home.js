@@ -15,7 +15,7 @@ const Home = () => {
         <hr/>
         <Services Title="C" word="offee-Break" bg={coffee} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
         <hr />
-        <Services Title="C" word="aldos e Sopas" bg={broths} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
+        <Services Title="C" word="aldos" bg={broths} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
         <hr />
         <Services Title="S" word="obremesas" bg={desserts} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
     </div>

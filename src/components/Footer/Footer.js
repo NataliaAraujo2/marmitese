@@ -17,6 +17,9 @@ const Footer = () => {
       <div className={styles.contact}>
         <ul>
           <li>
+            <p>CONTATO</p>
+          </li>
+          <li>
             <Button way="/contact" Text="WhatsAPP" Icon={FaWhatsapp} />
           </li>
           <li>
@@ -33,10 +36,11 @@ const Footer = () => {
           <li>
             <Button way="/contact" Icon={FaLinkedin} />
           </li>
-        
         </ul>
       </div>
-     
+     <div className={styles.copyright}>
+      <p>&copy;2023 Kay</p>
+     </div>
     </footer>
   );
 };
