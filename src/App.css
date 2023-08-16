@@ -5,18 +5,12 @@
   --yellow: #f3a801;
   --green: #01c086;
   --black: #000;
+  --white: #fff;
 }
 
 .container {
   min-height: 60vh;
   margin-bottom: 5em;
-  font-family: 'The Nautigal', cursive;
-  font-weight: 700;
-}
-
-.active {
-  background-color: var(--blue);  
-  font-family: 'The Nautigal', cursive;
-  color: antiquewhite;
+  font-family: "The Nautigal", cursive;
   font-weight: 700;
 }

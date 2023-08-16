@@ -8,7 +8,9 @@ import logo from "../../images/logo.png";
 import Button from "../Button/Button";
 import MenuMobile from "../MenuMobile/MenuMobile";
 //Icons
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaHome, FaInfo, FaLock, FaPen, FaStore } from "react-icons/fa";
+import { GrContact } from "react-icons/gr";
+import { MdRestaurantMenu } from "react-icons/md";
 
 const Navbar = () => {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
@@ -30,27 +32,27 @@ const Navbar = () => {
 
         <ul className={styles.links}>
           <li>
-            <Button way="/" Text="Início" />
+            <Button Icon={FaHome} way="/" Text="Início" />
           </li>
           <li>
-            <Button way="/menu" Text="Cardápio" />
+            <Button Icon={MdRestaurantMenu} way="/menu" Text="Cardápio" />
           </li>
           <li>
-            <Button way="/store" Text="Loja" />
+            <Button Icon={FaStore} way="/store" Text="Loja" />
           </li>
           <li>
-            <Button way="/about" Text="Sobre" />
+            <Button Icon={FaInfo} way="/about" Text="Sobre" />
           </li>
           <li>
-            <Button way="/contact" Text="Contato" />
+            <Button Icon={GrContact} way="/contact" Text="Contato" />
           </li>
         </ul>
         <ul className={styles.user}>
           <li>
-            <Button way="/login" Text="Entrar" />
+            <Button Icon={FaLock} way="/login" Text="Entrar" />
           </li>
           <li>
-            <Button way="/register" Text="Cadastro" />
+            <Button Icon={FaPen} way="/register" Text="Cadastro" />
           </li>
         </ul>
         <div className={styles.mobile}>
@@ -60,10 +62,10 @@ const Navbar = () => {
               {menuIsVisible && <MenuMobile active={setMenuIsVisible} />}
             </li>
             <li className={styles.mobile_user_text}>
-              <Button way="/login" Text="Entrar" />
+              <Button Icon={FaLock} way="/login" Text="Entrar" />
             </li>
             <li>
-              <Button way="/register" Text="Cadastro" />
+              <Button Icon={FaPen} way="/register" Text="Cadastro" />
             </li>
           </ul>
         </div>

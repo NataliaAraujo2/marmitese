@@ -13,7 +13,7 @@ const Home = () => {
     <div className={styles.home}>
         <Services Title="M" word="armitas" bg={pocket} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida" />
         <hr/>
-        <Services Title="C" word="offe-Break" bg={coffee} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
+        <Services Title="C" word="offee-Break" bg={coffee} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
         <hr />
         <Services Title="C" word="aldos e Sopas" bg={broths} subtitle="Apresentando Sabores Saudáveis: A Essência da Nutrição em Cada Mordida"/>
         <hr />

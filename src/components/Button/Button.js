@@ -2,15 +2,15 @@ import React from "react";
 import styles from './Button.module.css'
 import { NavLink } from "react-router-dom";
 
-const Button = ({ action, way, Text }) => {
+const Button = ({  way, action, Text, Icon }) => {
   return (
     
-      <NavLink to={way} onClick={action}  className={styles.button}>
-    
-        {Text}
-    
-      </NavLink>
-   
+    <NavLink to={way}>
+    <div className= { styles.button} onClick={action}>
+    <Icon />
+    {Text}
+    </div>
+  </NavLink>
   );
 };
 
