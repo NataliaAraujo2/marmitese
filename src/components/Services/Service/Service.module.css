@@ -58,3 +58,9 @@
   border: 1px solid var(--blue);
   font-size: 1.25em;
 }
+
+@media (max-width: 965px) {
+  .section_list{
+    text-align: left;
+  }
+}
