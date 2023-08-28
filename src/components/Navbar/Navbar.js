@@ -8,13 +8,30 @@ import logo from "../../images/logo.png";
 import Button from "../Button/Button";
 import MenuMobile from "../MenuMobile/MenuMobile";
 //Icons
-import { FaBars, FaHome, FaInfo, FaLock, FaPen, FaStore } from "react-icons/fa";
+import {
+  FaBars,
+  FaHome,
+  FaInfo,
+  FaLock,
+  FaPen,
+  FaShoppingBag,  
+  FaStore,
+  FaUnlock,
+  FaUserCog,
+} from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
 import { MdRestaurantMenu } from "react-icons/md";
+//hook
+import { useAuthentication } from "../../hooks/useAuthentication";
+//context
+import { useAuthValue } from "../context/AuthContext";
 
 const Navbar = () => {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
   const showMenuMobile = () => setMenuIsVisible(!menuIsVisible);
+
+  const { user } = useAuthValue();
+  const { logout } = useAuthentication();
 
   return (
     <>
@@ -43,18 +60,37 @@ const Navbar = () => {
           <li>
             <Button Icon={FaInfo} way="/about" Text="Sobre" />
           </li>
+          {user && (
+            <>
+              <li>
+                <Button Icon={FaShoppingBag} way="/my-orders" Text="Meus Pedidos" />
+              </li>
+              <li>
+                <Button Icon={FaUserCog} way="/my-data" Text="Meus Dados" />
+              </li>
+            </>
+          )}
           <li>
             <Button Icon={GrContact} way="/contact" Text="Contato" />
           </li>
         </ul>
-        <ul className={styles.user}>
-          <li>
-            <Button Icon={FaLock} way="/login" Text="Entrar" />
-          </li>
-          <li>
-            <Button Icon={FaPen} way="/register" Text="Cadastro" />
-          </li>
-        </ul>
+        {!user && (
+          <ul className={styles.user}>
+            <li>
+              <Button Icon={FaLock} way="/login" Text="Entrar" />
+            </li>
+            <li>
+              <Button Icon={FaPen} way="/register" Text="Cadastro" />
+            </li>
+          </ul>
+        )}
+        {user && (
+          <ul className={styles.user}>
+            <li>
+              <Button Icon={FaUnlock} action={logout} Text="Sair" />
+            </li>
+          </ul>
+        )}
         <div className={styles.mobile}>
           <ul className={styles.mobile_user}>
             <li>
