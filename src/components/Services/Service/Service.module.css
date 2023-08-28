@@ -63,4 +63,8 @@
   .section_list{
     text-align: left;
   }
+  .subtitle p {
+    text-align: left;
+  }
+
 }
