@@ -14,7 +14,7 @@ import {
   FaInfo,
   FaLock,
   FaPen,
-  FaShoppingBag,  
+  FaShoppingBag,
   FaStore,
   FaUnlock,
   FaUserCog,
@@ -27,87 +27,108 @@ import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../context/AuthContext";
 
 const Navbar = () => {
-  const [menuIsVisible, setMenuIsVisible] = useState(false);
-  const showMenuMobile = () => setMenuIsVisible(!menuIsVisible);
+  const [menuMobile, setMenuMobile] = useState(false);
+  const showMenuMobile = () => setMenuMobile(!menuMobile);
 
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
 
   return (
-    <>
-    
-      <nav className={styles.navbar}>
-        <NavLink
-          to="/"
-          className={({ isActive }) => (isActive ? styles.active : "")}
-        >
-          <img
-            className={styles.brand}
-            src={logo}
-            alt="logo Marmite-se Alimentação Saudável"
-          />
-        </NavLink>
+    <div className={styles.navbar}>
+      {user && (
+        <>
+          <div className={styles.mobile}>
+            <FaBars className={styles.faBars} onClick={showMenuMobile} />
+            {menuMobile && <MenuMobile active={setMenuMobile} />}
+          </div>
+          <div className={styles.brand}>
+            <img src={logo} alt="logo" className={styles.brand} />
+          </div>
 
-        <ul className={styles.links}>
-          <li>
-            <Button Icon={FaHome} way="/" Text="Início" />
-          </li>
-          <li>
-            <Button Icon={MdRestaurantMenu} way="/menu" Text="Cardápio" />
-          </li>
-          <li>
-            <Button Icon={FaStore} way="/store" Text="Loja" />
-          </li>
-          <li>
-            <Button Icon={FaInfo} way="/about" Text="Sobre" />
-          </li>
-          {user && (
-            <>
+          <div className={styles.links}>
+            <ul>
               <li>
-                <Button Icon={FaShoppingBag} way="/my-orders" Text="Meus Pedidos" />
+                <Button Icon={FaHome} way="/" Text="Início" />
               </li>
+              <li>
+                <Button Icon={MdRestaurantMenu} way="/menu" Text="Cardápio" />
+              </li>
+              <li>
+                <Button Icon={FaStore} way="/store" Text="Loja" />
+              </li>
+              <li>
+                <Button Icon={FaInfo} way="/about" Text="Sobre" />
+              </li>
+
+              <li>
+                <Button Icon={GrContact} way="/contact" Text="Contato" />
+              </li>
+            </ul>
+          </div>
+          <div className={styles.links}>
+            <div className={styles.link_list}>
               <li>
                 <Button Icon={FaUserCog} way="/my-data" Text="Meus Dados" />
               </li>
-            </>
-          )}
-          <li>
-            <Button Icon={GrContact} way="/contact" Text="Contato" />
-          </li>
-        </ul>
-        {!user && (
-          <ul className={styles.user}>
+              <li>
+                <Button
+                  Icon={FaShoppingBag}
+                  way="/my-orders"
+                  Text="Meus Pedidos"
+                />
+              </li>
+              <li>
+                <Button
+                  action={logout}
+                  way="/"
+                  Icon={FaUnlock}
+                  Text="Logout"
+                  className={styles.siderbaritem}
+                ></Button>
+              </li>
+            </div>
+          </div>
+        </>
+      )}
+
+      {!user && (
+        <>
+          <div className={styles.mobile}>
+            <FaBars className={styles.faBars} onClick={showMenuMobile} />
+            {menuMobile && <MenuMobile active={setMenuMobile} />}
+          </div>
+          <div>
+            <img src={logo} alt="logo" className={styles.brand} />
+          </div>
+
+          <div className={styles.links}>
+            <ul>
+              <li>
+                <Button Icon={FaHome} way="/" Text="Início" />
+              </li>
+              <li>
+                <Button Icon={MdRestaurantMenu} way="/menu" Text="Cardápio" />
+              </li>
+              <li>
+                <Button Icon={FaStore} way="/store" Text="Loja" />
+              </li>
+              <li>
+                <Button Icon={FaInfo} way="/about" Text="Sobre" />
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.link_list}>
             <li>
-              <Button Icon={FaLock} way="/login" Text="Entrar" />
+              <Button way="/login" Icon={FaLock} Text="Login"></Button>
             </li>
             <li>
-              <Button Icon={FaPen} way="/register" Text="Cadastro" />
+              <Button way="/register" Icon={FaPen} Text="Cadastre-se"></Button>
             </li>
-          </ul>
-        )}
-        {user && (
-          <ul className={styles.user}>
-            <li>
-              <Button Icon={FaUnlock} action={logout} Text="Sair" />
-            </li>
-          </ul>
-        )}
-        <div className={styles.mobile}>
-          <ul className={styles.mobile_user}>
-            <li>
-              <FaBars onClick={showMenuMobile} />
-              {menuIsVisible && <MenuMobile active={setMenuIsVisible} />}
-            </li>
-            <li className={styles.mobile_user_text}>
-              <Button Icon={FaLock} way="/login" Text="Entrar" />
-            </li>
-            <li>
-              <Button Icon={FaPen} way="/register" Text="Cadastro" />
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 
