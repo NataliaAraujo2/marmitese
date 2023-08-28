@@ -38,6 +38,10 @@ const Service = ({
         <p>{title}</p>
       </div>
       <Swiper
+        style={{
+          "--swiper-navigation-color": "#f3a801",
+          "--swiper-pagination-color": " #f3a801",
+        }}
         navigation={true}
         className={styles.mySwiper}
         slidesPerView={slidesPerView}

@@ -10,7 +10,6 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [natural, setNatural] = useState(false);
-  const [legal, setLegal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,15 +45,14 @@ const Register = () => {
           <li>
             <Button
               className={styles.legal}
-              action={() => setLegal(!legal)  }
+              action={() => setNatural(!natural)}
               Text="Pessoa Jurídica"
               Icon={FaBuilding}
             />
           </li>
         </ul>
       </div>
-
-      {natural && (
+      {natural === true ? (
         <div className={styles.naturalform}>
           <form onSubmit={handleSubmit}>
             <label>
@@ -101,11 +99,16 @@ const Register = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </label>
-            <Button action Text="Cadastrar" Icon={FaPen} />
+            <div className={styles.button}>
+              <ul>
+                <li>
+                  <Button action Text="Próximo" Icon={FaPen} />
+                </li>
+              </ul>
+            </div>
           </form>
         </div>
-      )}
-      {legal && (
+      ) : (
         <div className={styles.legalform}>
           <form onSubmit={handleSubmit}>
             <label>
@@ -152,7 +155,18 @@ const Register = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </label>
-            <Button action Text="Cadastrar" Icon={FaPen} />
+            <div className={styles.button}>
+              <ul>
+                <li>
+                  <Button
+                    className={styles.buttonc}
+                    action
+                    Text="Próximo"
+                    Icon={FaPen}
+                  />
+                </li>
+              </ul>
+            </div>
           </form>
         </div>
       )}

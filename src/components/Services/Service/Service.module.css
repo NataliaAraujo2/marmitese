@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.2em;
+  padding: 2em;
 }
 
 .title {
@@ -31,7 +31,6 @@
 .slideItem {
   height: 100%;
   object-fit: cover;
-  border: 1px solid var(--green);
 }
 
 .subtitle p {
