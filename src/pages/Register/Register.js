@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Register.module.css";
 import Button from "../../components/Button/Button";
-import { FaBuilding, FaPen, FaUser } from "react-icons/fa";
+import { FaBuilding, FaPen, FaUnlock, FaUser } from "react-icons/fa";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 const Register = () => {
@@ -20,11 +20,9 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setConfirmPassword("")
-    setDisplayName("")
-    setEmail("")
-    setPassword("")
+  
     setError("");
+   
 
     const user = {
       displayName,
@@ -39,6 +37,7 @@ const Register = () => {
       passwordRef.current.focus();
       return;
     }
+
 
     if (displayName === "") {
       setError("Preencha todos os campos");
@@ -58,6 +57,7 @@ const Register = () => {
       setError(authError);
     }
   }, [authError]);
+
   return (
     <div className={styles.register}>
       <h1>CRIE SUA CONTA</h1>
@@ -83,9 +83,23 @@ const Register = () => {
           </li>
         </ul>
       </div>
+     
       {natural === true ? (
         <div className={styles.naturalform}>
           <form onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
+            {error === "E-mail já cadastrado" && <div className={styles.button}>
+      <ul>
+        <li>
+          <Button
+            way="/"
+            className={styles.natural}
+            Text="Clique aqui para entrar!"
+            Icon={FaUnlock}
+          />
+        </li>
+        </ul>
+        </div>}
             <label>
               <span>Nome:</span>
               <input
@@ -157,11 +171,11 @@ const Register = () => {
               </div>
             )}
           </form>
-          {error && <p className="error">{error}</p>}
         </div>
       ) : (
         <div className={styles.legalform}>
           <form onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
             <label>
               <span>Nome da Empresa:</span>
               <input
@@ -234,7 +248,6 @@ const Register = () => {
               </div>
             )}
           </form>
-          {error && <p className="error">{error}</p>}
         </div>
       )}
     </div>

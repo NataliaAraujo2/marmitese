@@ -18,9 +18,14 @@ button {
 
 .button li {
   border: none;
+  background-color: var(--blue);
+  margin-left: 1em;
 }
 
-
+.conditional {
+  
+  justify-content: center;
+}
 
 .naturalform {
   display: block;

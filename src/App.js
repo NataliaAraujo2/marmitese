@@ -1,7 +1,7 @@
 //CSS
 import "./App.css";
 //Routes
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 //pages
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -44,21 +44,30 @@ function App() {
   }
   return (
     <div className="App">
-      <AuthProvider value={{user}}>
+      <AuthProvider value={{ user }}>
         <BrowserRouter>
           <Navbar />
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route
+                path="/login"
+                element={!user ? <Login /> : <Navigate to="/" />}
+              />
+              <Route path="/register" element={!user ? <Register /> :  <Navigate to="/" /> } />
               <Route path="/pocket" element={<Pocket />} />
               <Route path="/desserts" element={<Desserts />} />
               <Route path="/coffee" element={<Coffee />} />
               <Route path="/broths" element={<Broths />} />
-              <Route path="/my-orders" element={<Orders />} />
-              <Route path="/my-data" element={<UserData />} />
+              <Route
+                path="/my-orders"
+                element={user ? <Orders /> : <Navigate to="/register" />}
+              />
+              <Route
+                path="/my-data"
+                element={user ? <UserData /> : <Navigate to="/register" />}
+              />
             </Routes>
           </div>
           <Footer />

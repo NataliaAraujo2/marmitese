@@ -35,6 +35,7 @@ const Navbar = () => {
 
   return (
     <>
+    
       <nav className={styles.navbar}>
         <NavLink
           to="/"
