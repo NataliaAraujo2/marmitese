@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 //CSS
 import styles from "./Services.module.css";
-import { NavLink } from "react-router-dom";
 
-const Services = ({ Title, word, subtitle, bg }) => {
+import Button from "../Button/Button";
+import { FaInfo } from "react-icons/fa";
+
+const Services = ({ Title, word, subtitle, bg, way }) => {
   return (
     <div className={styles.services} style={{ backgroundImage: `url(${bg})` }}>
       <div className={styles.title}>
@@ -15,7 +17,9 @@ const Services = ({ Title, word, subtitle, bg }) => {
       <div className={styles.subtitle}>
         <p>{subtitle}</p>
       </div>
-      <button>Saiba mais</button>
+      <div className={styles.button}>
+        <Button Icon={FaInfo} way={way} Text="Saiba Mais" />
+      </div>
     </div>
   );
 };

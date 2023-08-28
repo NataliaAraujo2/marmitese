@@ -1,0 +1,61 @@
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2em;
+}
+
+.title {
+  color: var(--green);
+  margin-bottom: -2em;
+  margin-top: -2em;
+}
+
+.title p {
+  font-size: 4em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.title span {
+  font-size: 0.2em;
+}
+
+.mySwiper {
+  width: 55%;
+  height: 10em;
+  border: 1px solid var(--green);
+}
+
+.slideItem {
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--green);
+}
+
+.subtitle p {
+  text-align: justify;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  font-weight: 400;
+}
+
+.section_title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.section_list {
+  width: 50%;
+  text-align: justify;
+  padding: 1em;
+  border: 1px solid var(--blue);
+  font-size: 1.25em;
+}

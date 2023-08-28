@@ -2,12 +2,13 @@ body {
   background-color: white;
   padding: 0;
   margin: 0;
-  font-family: "Courier New", Courier, monospace;
+  
 }
 
 input::placeholder,
 textarea::placeholder {
-  font-family: "Courier New", Courier, monospace;
+  
+  color: #aaa
 }
 
 input:focus,
@@ -23,10 +24,57 @@ nav button {
   transition: .4s;
   font-size: 1em;
   cursor: pointer;
-  font-family: "Courier New", Courier, monospace;
+ 
 }
 
 a:hover,
 nav button:hover {
   color: var(--pink);
 }
+
+
+/*form style*/
+form {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1px;
+}
+
+label span {
+  margin-bottom: .3em;
+  font-weight: bold;
+  text-align: left;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid var(--yellow);
+  padding: .8em 0;
+  background-color: transparent;
+}
+
+.error {
+  color: #721C24;
+  background-color: var(--pink);
+  border: 1px solid var(--pink-dark);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.success {
+  color: var(--green);
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+
