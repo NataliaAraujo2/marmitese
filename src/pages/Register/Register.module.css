@@ -1,27 +1,31 @@
 .register {
-    text-align: center;
+  text-align: center;
 }
 
+button {
+  border: none;
+  background-color: var(--blue);
+}
 
 .button ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 2em;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
 }
 
 .button li {
-    background-color: var(--blue);
-    border: 1px solid var(--green);
+  border: none;
 }
+
+
 
 .naturalform {
-    display: block;
+  display: block;
 }
-
 
 .legalform {
-    display: block;
+  display: block;
 }
-
