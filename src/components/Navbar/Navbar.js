@@ -47,6 +47,9 @@ const Navbar = () => {
 
           <div className={styles.links}>
             <ul>
+            <li>
+                <Button Icon={FaPen} way="/" Text="Admin" />
+              </li>
               <li>
                 <Button Icon={FaHome} way="/" Text="Início" />
               </li>
