@@ -14,7 +14,7 @@ import {
 //components
 import Button from "../Button/Button";
 import { MdRestaurantMenu } from "react-icons/md";
-import { GrContact } from "react-icons/gr";
+import { GrContact, GrDocumentConfig } from "react-icons/gr";
 import { Container, Content } from "./styles";
 import { useAuthValue } from "../context/AuthContext";
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -26,10 +26,10 @@ const MenuMobile = ({ active }) => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
 
-  const handleClick =()=> {
-    logout ()
-    closeMenu()
-  }
+  const handleClick = () => {
+    logout();
+    closeMenu();
+  };
 
   return (
     <Container menumobile={active}>
@@ -60,6 +60,12 @@ const MenuMobile = ({ active }) => {
           <Button
             Icon={GrContact}
             way="/contact"
+            Text="Contato"
+            action={closeMenu}
+          />
+          <Button
+            Icon={GrDocumentConfig}
+            way="/admin/products"
             Text="Contato"
             action={closeMenu}
           />

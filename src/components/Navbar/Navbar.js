@@ -19,7 +19,7 @@ import {
   FaUnlock,
   FaUserCog,
 } from "react-icons/fa";
-import { GrContact } from "react-icons/gr";
+import { GrContact, GrDocumentConfig } from "react-icons/gr";
 import { MdRestaurantMenu } from "react-icons/md";
 //hook
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -47,9 +47,6 @@ const Navbar = () => {
 
           <div className={styles.links}>
             <ul>
-            <li>
-                <Button Icon={FaPen} way="/" Text="Admin" />
-              </li>
               <li>
                 <Button Icon={FaHome} way="/" Text="Início" />
               </li>
@@ -74,11 +71,7 @@ const Navbar = () => {
                 <Button Icon={FaUserCog} way="/" Text="Meus Dados" />
               </li>
               <li>
-                <Button
-                  Icon={FaShoppingBag}
-                  way="/"
-                  Text="Meus Pedidos"
-                />
+                <Button Icon={FaShoppingBag} way="/" Text="Meus Pedidos" />
               </li>
               <li>
                 <Button
@@ -106,6 +99,11 @@ const Navbar = () => {
 
           <div className={styles.links}>
             <ul>
+              <Button
+                Icon={GrDocumentConfig}
+                way="/admin/products"
+                Text="Contato"
+              />
               <li>
                 <Button Icon={FaHome} way="/" Text="Início" />
               </li>
