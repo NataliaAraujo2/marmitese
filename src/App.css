@@ -1,18 +1,20 @@
 :root {
   --blue: #0094b0;
-  --pink: #db75c9;
-  --pink-dark: #e1a3d6;
+  --pink-dark: #db75c9;
+  --pink: #e1a3d6;
   --yellow: #f3a801;
   --green: #01c086;
   --black: #000;
   --white: #fff;
+  --grey-dark: #696969;
+  --grey: #808080;
+  --grey-light: #a9a9a9;
 }
 
 .container {
   min-height: 60vh;
   max-width: 100%;
   margin-bottom: 5em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 700;
 }
-

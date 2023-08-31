@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 import styles from "./Login.module.css";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,8 +12,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmail("")
-    setPassword("")
+    setEmail("");
+    setPassword("");
     setError("");
 
     const user = {
@@ -34,7 +33,7 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <h1>Entrar</h1>
-      
+
       <form onSubmit={handleSubmit}>
         <label>
           <span>E-mail:</span>
@@ -60,28 +59,8 @@ const Login = () => {
           />
         </label>
 
-        {!loading && (
-              <div className={styles.button}>
-                <ul>
-                  <li>
-                    <button>
-                      Entrar 
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
-            {loading && (
-              <div className={styles.button}>
-                <ul>
-                  <li>
-                    <button disabled>
-                      Aguarde... 
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
+        {!loading && <button>Entrar</button>}
+        {loading && <button disabled>Aguarde...</button>}
         {error && <p className="error">{error}</p>}
       </form>
     </div>

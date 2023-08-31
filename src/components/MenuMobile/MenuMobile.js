@@ -47,13 +47,13 @@ const MenuMobile = ({ active }) => {
           <Button Icon={FaInfo} way="/about" Text="Sobre" action={closeMenu} />
           <Button
             Icon={FaShoppingBag}
-            way="/my-orders"
+            way="/"
             Text="Meus Pedidos"
             action={closeMenu}
           />
           <Button
             Icon={FaUserCog}
-            way="/my-data"
+            way=""
             Text="Meus Dados"
             action={closeMenu}
           />

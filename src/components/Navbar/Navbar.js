@@ -68,12 +68,12 @@ const Navbar = () => {
           <div className={styles.links}>
             <div className={styles.link_list}>
               <li>
-                <Button Icon={FaUserCog} way="/my-data" Text="Meus Dados" />
+                <Button Icon={FaUserCog} way="/" Text="Meus Dados" />
               </li>
               <li>
                 <Button
                   Icon={FaShoppingBag}
-                  way="/my-orders"
+                  way="/"
                   Text="Meus Pedidos"
                 />
               </li>

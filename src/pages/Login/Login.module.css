@@ -1,15 +1,11 @@
 .login {
     text-align: center;
   }
+
  .login h1 {
     padding: 2em;
  }
 
-
- button {
-    border: none;
-    background-color: var(--blue);
-  }
 
   .button ul {
    list-style: none;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Register.module.css";
 import Button from "../../components/Button/Button";
-import { FaBuilding, FaPen, FaUnlock, FaUser } from "react-icons/fa";
+import { FaBuilding, FaUnlock, FaUser } from "react-icons/fa";
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 const Register = () => {
@@ -20,9 +20,8 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     setError("");
-   
 
     const user = {
       displayName,
@@ -37,7 +36,6 @@ const Register = () => {
       passwordRef.current.focus();
       return;
     }
-
 
     if (displayName === "") {
       setError("Preencha todos os campos");
@@ -83,23 +81,25 @@ const Register = () => {
           </li>
         </ul>
       </div>
-     
+
       {natural === true ? (
         <div className={styles.naturalform}>
           <form onSubmit={handleSubmit}>
             {error && <p className="error">{error}</p>}
-            {error === "E-mail já cadastrado" && <div className={styles.button}>
-      <ul>
-        <li>
-          <Button
-            way="/"
-            className={styles.natural}
-            Text="Clique aqui para entrar!"
-            Icon={FaUnlock}
-          />
-        </li>
-        </ul>
-        </div>}
+            {error === "E-mail já cadastrado" && (
+              <div className={styles.button}>
+                <ul>
+                  <li>
+                    <Button
+                      way="/"
+                      className={styles.natural}
+                      Text="Clique aqui para entrar!"
+                      Icon={FaUnlock}
+                    />
+                  </li>
+                </ul>
+              </div>
+            )}
             <label>
               <span>Nome:</span>
               <input
@@ -148,28 +148,8 @@ const Register = () => {
                 autoComplete="off"
               />
             </label>
-            {!loading && (
-              <div className={styles.button}>
-                <ul>
-                  <li>
-                    <button>
-                      Cadastrar <FaPen />
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
-            {loading && (
-              <div className={styles.button}>
-                <ul>
-                  <li>
-                    <button disabled>
-                      Aguarde... <FaPen />
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
+            {!loading && <button>Cadastrar</button>}
+            {loading && <button disabled>Aguarde...</button>}
           </form>
         </div>
       ) : (
@@ -225,28 +205,8 @@ const Register = () => {
                 autoComplete="off"
               />
             </label>
-            {!loading && (
-              <div className={styles.button}>
-                <ul>
-                  <li>
-                    <button>
-                      Cadastrar <FaPen />
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
-            {loading && (
-              <div className={styles.button}>
-                <ul>
-                  <li>
-                    <button disabled>
-                      Aguarde... <FaPen />
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            )}
+            {!loading && <button>Cadastrar</button>}
+            {loading && <button disabled>Aguarde...</button>}
           </form>
         </div>
       )}
