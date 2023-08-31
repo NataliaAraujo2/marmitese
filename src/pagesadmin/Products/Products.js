@@ -43,6 +43,7 @@ const Products = () => {
       setUploading(true);
       const result = await Images.insert(file, fileName);
       setUploading(false);
+    
 
       if (result instanceof Error) {
         alert(`${result.name} ${result.message}`);
@@ -52,6 +53,11 @@ const Products = () => {
         setImages(newMarmitasList);
       }
     }
+    const inputArquivo = document.getElementById('image');
+    inputArquivo.value = '';
+    setDisplayProductName("")
+    setPrice("")
+    setProductDescription("")
   };
 
   const preview = () => {
