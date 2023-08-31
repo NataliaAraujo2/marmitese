@@ -1,8 +1,23 @@
+.titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.titleA{
+  margin-left: 1em;
+}
+
+.titleB {
+  margin-right: 1em;
+}
+
 .upload {
   display: flex;
   flex-direction: row;
   padding: 1%;
   width: 50%;
+  align-items: center;
 }
 
 .upload label {
@@ -69,6 +84,34 @@
   width: 43em;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3em;
+  width: fit-content;
+  border: 1px solid var(--grey-dark);
+  width: 100%;
+  height: 36em;
+}
+
+.paths {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1em;
+  margin: 1em;
+}
+
+.imageList {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-auto-flow: row;
+  gap: 1em;
+  justify-content: space-between;
+  margin-left: 1em;
+  margin-right: 1em;
+  overflow: scroll;
+}
+
 @media (max-width: 965px) {
   .upload {
     display: flex;
@@ -81,7 +124,6 @@
   .upload label {
     padding-right: 1em;
   }
-
 
   .productDetails {
     margin-top: 1em;
@@ -106,13 +148,6 @@
     display: flex;
     flex-direction: column;
     width: 22em;
-  }
-
-  .preview {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-     margin-left: 15em;
   }
 
   .productDescription {
@@ -145,5 +180,12 @@
 
   .description textarea {
     width: 43em;
+  }
+
+  .preview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 15em;
   }
 }

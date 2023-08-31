@@ -64,8 +64,9 @@ const Products = () => {
 
   return (
     <div className={stylesGlobal.admin}>
-      <div>
-        <h1>Galeria de Produtos</h1>
+      <div className={styles.titles}>
+        <h2 className={styles.titleA}>Adicione um produto novo ou Edite um produto</h2>
+        <h1 className={styles.titleB}>Galeria de Produtos</h1>
       </div>
       <div className={stylesGlobal.body}>
         <form onSubmit={handleSubmit}>
@@ -73,13 +74,7 @@ const Products = () => {
             <div className={styles.productDetails}>
               <label className={styles.image}>
                 <span>Adicione uma imagem</span>
-                <input
-                  className={styles.inputImage}
-                  type="file"
-                  id="image"
-                  name="image"
-                  onChange={preview}
-                />
+                <input type="file" id="image" name="image" onChange={preview} />
               </label>
               <div className={styles.product}>
                 <label>
@@ -117,13 +112,18 @@ const Products = () => {
                     onChange={(e) => setProductDescription(e.target.value)}
                   ></textarea>
                 </label>
+
+                <div>
+                  {!uploading && <button>Enviar</button>}
+                  {uploading && <button disabled>Enviando...</button>}
+                </div>
               </div>
             </div>
 
             <label>
               <div className={styles.preview}>
                 {image ? (
-                  <ProductImage 
+                  <ProductImage
                     url={image}
                     name={displayProductName}
                     price={price}
@@ -132,33 +132,35 @@ const Products = () => {
                 ) : (
                   <ProductImage url={defaultImage} name="Preview" />
                 )}
+              </div>
+            </label>
+            <label>
+              <div className={styles.list}>
+                <div className={styles.paths}>
+                  <Button Icon={MdFoodBank} Text="Marmitas" />
+                  <Button Icon={FaCoffee} Text="Coffee-Break" />
+                  <Button Icon={MdSoupKitchen} Text="Caldos e Sopas" />
+                  <Button Icon={MdCake} Text="Sobremesas" />
+                </div>
 
-                {!uploading && <button>Enviar</button>}
-                {uploading && <button disabled>Enviando...</button>}
+                {loading && <div className={styles.load}>Carregando...</div>}
+                {!loading && images.length > 0 && (
+                  <div className={styles.imageList}>
+                    {images.map((item, index) => (
+                      <ProductImage
+                        key={index}
+                        url={item.url}
+                        name={item.name}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {!loading && images.length === 0 && <div>Não há imagens!</div>}
               </div>
             </label>
           </div>
         </form>
-
-        <div className={styles.list}>
-          <div className={styles.paths}>
-            <Button Icon={MdFoodBank} Text="Marmitas" />
-            <Button Icon={FaCoffee} Text="Coffee-Break" />
-            <Button Icon={MdSoupKitchen} Text="Caldos e Sopas" />
-            <Button Icon={MdCake} Text="Sobremesas" />
-          </div>
-
-          {loading && <div className={styles.load}>Carregando...</div>}
-          {!loading && images.length > 0 && (
-            <div className={styles.imageList}>
-              {images.map((item, index) => (
-                <ProductImage key={index} url={item.url} name={item.name} />
-              ))}
-            </div>
-          )}
-
-          {!loading && images.length === 0 && <div>Não há imagens!</div>}
-        </div>
       </div>
     </div>
   );
