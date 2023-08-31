@@ -22,10 +22,10 @@ for (let i in marmitasList.items) {
 
 //Envia arquivos para o firestorage para a posta marmitas
 
-export const insert = async (file) => {
+export const insert = async (file, fileName) => {
   if(['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
 
-const fileName = prompt("Dê um nome para a imagem!")
+
 const newFile =ref(storage, `marmitas/${fileName}`)
 const upload = await uploadBytes(newFile, file)
 const imageUrl = await getDownloadURL(upload.ref)

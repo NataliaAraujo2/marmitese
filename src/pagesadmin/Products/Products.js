@@ -37,10 +37,11 @@ const Products = () => {
 
     const formData = new FormData(e.currentTarget);
     const file = formData.get("image");
+    const fileName = formData.get("displayProductName");
 
     if (file && file.size > 0) {
       setUploading(true);
-      const result = await Images.insert(file);
+      const result = await Images.insert(file, fileName);
       setUploading(false);
 
       if (result instanceof Error) {
@@ -65,7 +66,9 @@ const Products = () => {
   return (
     <div className={stylesGlobal.admin}>
       <div className={styles.titles}>
-        <h2 className={styles.titleA}>Adicione um produto novo ou Edite um produto</h2>
+        <h2 className={styles.titleA}>
+          Adicione um produto novo ou Edite um produto
+        </h2>
         <h1 className={styles.titleB}>Galeria de Produtos</h1>
       </div>
       <div className={stylesGlobal.body}>
@@ -80,6 +83,7 @@ const Products = () => {
                 <label>
                   <span> Nome do Produto</span>
                   <input
+                    id="displayProductName"
                     type="text"
                     name="displayProductName"
                     ref={displayProductNameRef}
@@ -123,7 +127,7 @@ const Products = () => {
             <label>
               <div className={styles.preview}>
                 {image ? (
-                  <ProductImage
+                  <ProductImage disabled
                     url={image}
                     name={displayProductName}
                     price={price}

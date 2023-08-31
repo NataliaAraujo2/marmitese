@@ -1,7 +1,7 @@
 import styles from "./ProductImage.module.css";
 import React from "react";
 
-const ProductImage = ({ url, name, price, description }) => {
+const ProductImage = ({ url, name, price, description,action }) => {
   return (
     <div className={styles.productImage}>
       <div>
@@ -17,9 +17,9 @@ const ProductImage = ({ url, name, price, description }) => {
       </div>
 
       <div className={styles.add}>
-        <button>+</button>
+        <button onClick={action}>+</button>
         <span>0</span>
-        <button>-</button>
+        <button onClick={action}>-</button>
       </div>
     </div>
   );
