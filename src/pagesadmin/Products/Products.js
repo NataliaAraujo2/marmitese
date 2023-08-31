@@ -112,7 +112,7 @@ const Products = () => {
                     wrap="hard"
                     name="productDescription"
                     ref={productDescriptionRef}
-                    placeholder="Descreva aqui seu produto. Lembre-se de usar no máximo 100 caracteres!"
+                    placeholder="Descreva aqui seu produto. Lembre-se de usar no máximo 200 caracteres!"
                     value={productDescription}
                     onChange={(e) => setProductDescription(e.target.value)}
                   ></textarea>
